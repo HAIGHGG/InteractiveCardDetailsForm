@@ -2,7 +2,7 @@
 
 This is a solution to the [Interactive card details form challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/interactive-card-details-form-XpS8cKZDWw).
 
-[Site](https://HAIGHGG.github.io/InteractiveCardDetailsForm)
+## [Solution](https://HAIGHGG.github.io/InteractiveCardDetailsForm)
 
 ### Built with
 
