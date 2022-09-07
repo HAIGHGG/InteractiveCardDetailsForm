@@ -40,8 +40,8 @@
       </div>
       <div class="card-number-input">
         <label for="card-number">Card Number</label>
-        <input type="text" onkeypress="return onlyNumberKey(event)" maxlength="16" id="card-number"
-          placeholder="e.g. 1234 5678 9123 0000">
+        <input id="card-number" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number"
+          maxlength="16" placeholder="e.g. 1234 5678 9123 0000">
         <p class="error-msg"></p>
       </div>
 
@@ -50,16 +50,16 @@
         <div class="date-wrapper">
           <label for="date">Exp. Date (MM/YY)</label>
           <div class="data-inputs">
-            <input type="text" onkeypress="return onlyNumberKey(event)" maxlength="2" id="date-mm" class="date-mm"
+            <input type="text" maxlength="2" id="date-mm" class="date-mm"
               placeholder="MM">
-            <input type="text" onkeypress="return onlyNumberKey(event)" maxlength="2" id="date-yy" class="date-yy"
+            <input type="text" maxlength="2" id="date-yy" class="date-yy"
               placeholder="YY">
             <p class="error-msg"></p>
           </div>
         </div>
         <div class="cvc-wrapper">
           <label for="cvc">CVC</label>
-          <input type="text" onkeypress="return onlyNumberKey(event)" maxlength="3" id="cvc" class="input-cvc"
+          <input type="text"  maxlength="3" id="cvc" class="input-cvc"
             placeholder="e.g. 123">
           <p class="error-msg"></p>
         </div>
@@ -72,7 +72,7 @@
       <img src="images/icon-complete.svg" alt="">
       <h2>thank you!</h2>
       <p>We've added your card details</p>
-      <a href="https://haighgg.github.io/InteractiveCardDetailsForm/" class="btn btn-continue"
+      <a href="https://haighgg.github.io/InteractiveCardDetailsForm/" class="btn btn-continue unactive"
         role="button">Continue</a>
     </div>
   </div>

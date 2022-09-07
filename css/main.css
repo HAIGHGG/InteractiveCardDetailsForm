@@ -167,7 +167,7 @@ input {
   padding: 7px;
   border-color: hsl(270deg, 3%, 87%);
   border-style: solid;
-  border-radius: 10px;
+  border-radius: 5px;
   font-family: "Space Grotesk", sans-serif;
   font-weight: bold;
   color: hsl(278deg, 68%, 11%);
@@ -219,7 +219,6 @@ input:focus {
   -o-border-image: linear-gradient(hsl(249deg, 99%, 64%), hsl(278deg, 94%, 30%)) 1;
      border-image: -webkit-gradient(linear, left top, left bottom, from(hsl(249deg, 99%, 64%)), to(hsl(278deg, 94%, 30%))) 1;
      border-image: linear-gradient(hsl(249deg, 99%, 64%), hsl(278deg, 94%, 30%)) 1;
-  border-radius: 30px;
 }
 
 .popup {
@@ -271,6 +270,10 @@ input:focus {
 }
 .hidden .btn {
   cursor: default;
+}
+
+.unactive {
+  display: none;
 }
 
 @media (min-width: 768px) {
@@ -348,4 +351,9 @@ input:focus {
   .popup {
     width: 35vw;
   }
-}/*# sourceMappingURL=main.css.map */
+}
+/* 
+* Prevents issues when the parent creates a 
+* stacking context. (For example, using the transform
+* property )
+*//*# sourceMappingURL=main.css.map */

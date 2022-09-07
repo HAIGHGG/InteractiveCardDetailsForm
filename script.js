@@ -12,11 +12,16 @@ const btnConfirm = document.querySelector('.btn-confirm')
 const popup = document.querySelector('.popup')
 const panel = document.querySelector('.panel')
 
-
 const updateCardNumber = () => {
 	const numbers = inputNumber.value.padEnd(16, '0')
 	numberCard.textContent = `${numbers.slice(0, 4)} ${numbers.slice(4, 8)} ${numbers.slice(8, 12)} ${numbers.slice(12)}`
-}
+	if (isNaN(inputNumber.value)) {
+		inputNumber.classList.add('input-error')
+		inputNumber.closest('div').querySelector('.error-msg').textContent = "Wrong format, numbers only"
+	} else {
+		inputNumber.classList.remove('input-error')
+		inputNumber.closest('div').querySelector('.error-msg').textContent = ""
+	}}
 
 const updateCardName = () => {
 	inputName.value === '' ? (nameCard.textContent = 'Jane Appleseed') : (nameCard.textContent = inputName.value)
@@ -24,9 +29,25 @@ const updateCardName = () => {
 
 const updateCardDate = () => {
 	dateCard.textContent = `${inputDateMM.value.padEnd(2, '0')}/${inputDateYY.value.padEnd(2, '0')}`
+	if (isNaN(inputDateMM.value) || isNaN(inputDateYY.value)) {
+		inputDateMM.classList.add('input-error')
+		inputDateYY.classList.add('input-error')
+		inputDateMM.closest('div').querySelector('.error-msg').textContent = "Wrong format, numbers only"
+	} else {
+		inputDateMM.classList.remove('input-error')
+		inputDateYY.classList.remove('input-error')
+		inputDateMM.closest('div').querySelector('.error-msg').textContent = ""
+	}
 }
 const updateCardCVC = () => {
 	inputCVC.value === '' ? (cvcCard.textContent = '000') : (cvcCard.textContent = inputCVC.value)
+	if (isNaN(inputCVC.value)) {
+		inputCVC.classList.add('input-error')
+		inputCVC.closest('div').querySelector('.error-msg').textContent = "Wrong format, numbers only"
+	} else {
+		inputCVC.classList.remove('input-error')
+		inputCVC.closest('div').querySelector('.error-msg').textContent = ""
+	}
 }
 
 const isBlank = () => {
@@ -43,39 +64,31 @@ const isBlank = () => {
 
 const isCardNumberProper = () => {
 	if (inputNumber.value.length < 16 && inputNumber.value.length != 0) {
+		inputNumber.classList.add('input-error')
 		inputNumber.closest('div').querySelector('.error-msg').textContent = 'Wrong format, need 16 digits'
-	}
+	} else {inputNumber.classList.remove('input-error')}
 }
 
 const confimation = () => {
-    const errorMsgs = document.querySelectorAll('.error-msg')
-    let errors = 0
-    errorMsgs.forEach(msg => {
-        if (msg.textContent != ''){
-            errors++
-        }
-    });
-    if (errors === 0){
-        panel.classList.add('hidden')
-        popup.classList.add('active')
-    }
+	const errorMsgs = document.querySelectorAll('.error-msg')
+	let errors = 0
+	errorMsgs.forEach(msg => {
+		if (msg.textContent != '') {
+			errors++
+		}
+	})
+	if (errors === 0) {
+		panel.classList.add('hidden')
+		popup.classList.add('active')
+		popup.querySelector('a').classList.remove('unactive')
+	}
 }
 
-inputName.addEventListener('keyup', updateCardName)
-inputNumber.addEventListener('keyup', updateCardNumber)
-inputCVC.addEventListener('keyup', updateCardCVC)
-inputDateMM.addEventListener('keyup', updateCardDate)
-inputDateYY.addEventListener('keyup', updateCardDate)
+inputName.addEventListener('input', updateCardName)
+inputNumber.addEventListener('input', updateCardNumber)
+inputCVC.addEventListener('input', updateCardCVC)
+inputDateMM.addEventListener('input', updateCardDate)
+inputDateYY.addEventListener('input', updateCardDate)
 btnConfirm.addEventListener('click', isBlank)
 btnConfirm.addEventListener('click', isCardNumberProper)
 btnConfirm.addEventListener('click', confimation)
-
-
-
-
-const onlyNumberKey = e => {
-	var ASCIICode = e.which ? e.which : e.keyCode
-	if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57)) return false
-	return true
-}
-
