@@ -6,8 +6,8 @@ This is a solution to the [Interactive card details form challenge on Frontend M
 
 ### Built with
 
-- Semantic HTML5 markup
+- Semantic HTML5
 - SCSS
 - Flexbox
 - Vanilla JavaScript
-- Mobile-first workflow
+- Mobile-first
